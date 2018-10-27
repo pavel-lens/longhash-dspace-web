@@ -10,20 +10,18 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Button } from 'antd';
 
-import messages from './messages';
+import styles from './styles.css';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-
+      <div className={styles.site}>
+        <h1>DSpace - Decentralized Shared Office rental</h1>
         <Button type="primary">Hello</Button>
-      </h1>
+      </div>
     );
   }
 }
