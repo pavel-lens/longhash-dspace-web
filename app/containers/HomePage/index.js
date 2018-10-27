@@ -12,7 +12,7 @@
 import React from 'react';
 import { Button } from 'antd';
 
-import styles from './styles.css';
+import styles from './styles.scss';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
