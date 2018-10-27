@@ -122,6 +122,7 @@ module.exports = options => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+    // ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
