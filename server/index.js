@@ -1,6 +1,9 @@
 /* eslint consistent-return:0 import/order:0 */
 
+require('dotenv').config();
+
 const express = require('express');
+const bodyParser = require('body-parser');
 const logger = require('./logger');
 
 const argv = require('./argv');
@@ -13,6 +16,11 @@ const ngrok =
     : false;
 const { resolve } = require('path');
 const app = express();
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 const api = require('./api');
