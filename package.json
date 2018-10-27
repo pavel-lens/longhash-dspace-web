@@ -65,6 +65,8 @@
     "compression": "1.7.3",
     "connected-react-router": "4.5.0",
     "cross-env": "5.2.0",
+    "dotenv": "^6.1.0",
+    "evtjs": "^4.4.4",
     "express": "4.16.4",
     "fontfaceobserver": "2.0.13",
     "history": "4.7.2",
