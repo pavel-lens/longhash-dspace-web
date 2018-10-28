@@ -6,10 +6,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './styles.scss';
 
 function SuperNav(props) {
   const { role, onRoleChange } = props;
+  const disabledRoleChange = !onRoleChange;
 
   const renderRole = roleName => {
     if (roleName === role) {
@@ -18,10 +20,12 @@ function SuperNav(props) {
     return (
       <span>
         {' '}
-        <a href="javascript: void(0);" onClick={() => onRoleChange(roleName)}>
-          {roleName}
-        </a>{' '}
-        |
+        {!disabledRoleChange && (
+          <a href="javascript: void(0);" onClick={() => onRoleChange(roleName)}>
+            {roleName}
+          </a>
+        )}
+        {disabledRoleChange && <span>{roleName}</span>} |
       </span>
     );
   };
@@ -29,10 +33,17 @@ function SuperNav(props) {
   return (
     <div className={styles.supernav}>
       <div className={styles.wrapper}>
-        Select role:
-        {renderRole('master')}
-        {renderRole('host')}
-        {renderRole('rentee')}
+        <div className={styles.left}>
+          <Link to="/">Home</Link> |<Link to="/super-admin"> Super Admin</Link>{' '}
+          |<Link to="/host-dashboard"> Host Dashoard</Link> |
+          <Link to="/rentee-dashboard"> Rentee Dashoard</Link>
+        </div>
+        <div className={styles.right}>
+          Select role:
+          {renderRole('master')}
+          {renderRole('host')}
+          {renderRole('rentee')}
+        </div>
       </div>
     </div>
   );
