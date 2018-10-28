@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
 function SuperNav(props) {
@@ -29,7 +29,7 @@ function SuperNav(props) {
   return (
     <div className={styles.supernav}>
       <div className={styles.wrapper}>
-        Role:
+        Select role:
         {renderRole('master')}
         {renderRole('host')}
         {renderRole('rentee')}
@@ -38,6 +38,9 @@ function SuperNav(props) {
   );
 }
 
-SuperNav.propTypes = {};
+SuperNav.propTypes = {
+  role: PropTypes.string,
+  onRoleChange: PropTypes.func,
+};
 
 export default SuperNav;
