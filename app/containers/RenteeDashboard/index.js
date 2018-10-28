@@ -108,7 +108,7 @@ export class RenteeDashboard extends React.Component {
   }
 
   render() {
-    const { loading, role } = this.state;
+    const { loading, role, tokens } = this.state;
 
     return (
       <div className="supernavPush">
@@ -119,8 +119,15 @@ export class RenteeDashboard extends React.Component {
 
         {loading && (
           <Layout>
-            <Icon type="loading" style={{ fontSize: 100 }} /> Loading tokens to
-            access offices..
+            <Icon type="loading" style={{ fontSize: 100 }} />
+            <h3>Loading tokens to access offices..</h3>
+          </Layout>
+        )}
+        {!loading &&
+          tokens.length === 0 && (
+          <Layout>
+            <Icon type="frown" style={{ fontSize: 100 }} />
+            <h3>You don't have any tokens at this moment.</h3>
           </Layout>
         )}
         {!loading && <Row gutter={32}>{this.renderOfficeTokens()}</Row>}
