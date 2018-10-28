@@ -17,29 +17,9 @@ import Spacer from 'components/Spacer';
 import SuperNav from 'components/SuperNav';
 import Token from 'components/Token';
 import * as request from 'utils/request';
+import offices from 'data/offices';
 import keys from 'data/keys';
 import styles from './styles.scss';
-
-const offices = [
-  {
-    id: 1,
-    slug: 'r24.obr',
-    name: 'Rent24 Oberwallstraße',
-    address: 'Oberwallstraße 6, Berlin',
-  },
-  {
-    id: 2,
-    slug: 'r24.pts',
-    name: 'Rent24 Potsdamer platz',
-    address: 'Potsdamer platz 5, Berlin',
-  },
-  {
-    id: 3,
-    slug: 'ww.pts',
-    name: 'WeWork Potsdamer platz',
-    address: 'Potsdamer platz 3, Berlin',
-  },
-];
 
 const selectOfficeById = id => offices.find(o => o.id === id);
 
