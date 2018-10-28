@@ -8,6 +8,7 @@ const offices = [
   {
     id: 2,
     slug: 'r24.pts',
+    alias: 'rent24.potsdamer',
     name: 'Rent24 Potsdamer platz',
     address: 'Potsdamer platz 5, Berlin',
   },
