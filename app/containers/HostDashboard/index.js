@@ -169,25 +169,28 @@ export class HostDashboard extends React.Component {
     const propertyTokens = tokens[owner].filter(token =>
       token.name.startsWith(office.slug),
     );
-    const onDelete =
-      owner === 'host' ? () => this.handleTokenDelete(token.name) : undefined;
 
-    const tokenNodes = propertyTokens.map(token => (
-      <Token
-        key={`token-${token.domain}-${token.name}`}
-        locked={owner === 'host'}
-        name={token.name}
-        transfering={transferingToken === token.name}
-        onDelete={onDelete}
-        onClick={() =>
-          this.handleTokenTransfer(
-            token.name,
-            keys[owner].private,
-            keys[transferTo].public,
-          )
-        }
-      />
-    ));
+    const tokenNodes = propertyTokens.map(token => {
+      const onDelete =
+        owner === 'host' ? () => this.handleTokenDelete(token.name) : undefined;
+
+      return (
+        <Token
+          key={`token-${token.domain}-${token.name}`}
+          locked={owner === 'host'}
+          name={token.name}
+          transfering={transferingToken === token.name}
+          onDelete={onDelete}
+          onClick={() =>
+            this.handleTokenTransfer(
+              token.name,
+              keys[owner].private,
+              keys[transferTo].public,
+            )
+          }
+        />
+      );
+    });
 
     return tokenNodes;
   }
