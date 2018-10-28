@@ -142,7 +142,7 @@ router.post('/destroyToken', async (req, res) => {
   const { token } = req.body;
 
   try {
-    api.initializeApi(network, MASTER_PRIVATE_KEY);
+    api.initializeApi(network, HOST_PRIVATE_KEY);
     const response = await api.destroyToken(token);
 
     return res.json({
