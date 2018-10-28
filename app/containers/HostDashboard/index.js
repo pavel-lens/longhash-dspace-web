@@ -96,6 +96,33 @@ export class HostDashboard extends React.Component {
     // this.handleLoadTokens();
   };
 
+  handleTokenDelete = token => {
+    console.log('handleTokenDelete', token);
+    this.setState({
+      transferingToken: token,
+    });
+
+    request
+      .post('/api/destroyToken', { token })
+      .then(res => {
+        console.log('API::destroyToken TX', res);
+
+        request.post('/api/listTokens', { role: 'all' }).then(response => {
+          console.log('API::listTokens TX', response);
+          this.setState({
+            tokens: response.payload,
+            transferingToken: null,
+          });
+        });
+      })
+      .catch(err => {
+        console.error('API::transferToken TX Error', err);
+        this.setState({
+          transferingToken: null,
+        });
+      });
+  };
+
   handleTokenTransfer = (token, fromPrivateKey, toPkey) => {
     console.log('Trasnfering token', token, 'to', toPkey);
     this.setState({
@@ -142,12 +169,16 @@ export class HostDashboard extends React.Component {
     const propertyTokens = tokens[owner].filter(token =>
       token.name.startsWith(office.slug),
     );
+    const onDelete =
+      owner === 'host' ? () => this.handleTokenDelete(token.name) : undefined;
+
     const tokenNodes = propertyTokens.map(token => (
       <Token
         key={`token-${token.domain}-${token.name}`}
         locked={owner === 'host'}
         name={token.name}
         transfering={transferingToken === token.name}
+        onDelete={onDelete}
         onClick={() =>
           this.handleTokenTransfer(
             token.name,
