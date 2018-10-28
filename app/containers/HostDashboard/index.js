@@ -193,7 +193,7 @@ export class HostDashboard extends React.Component {
   }
 
   render() {
-    const { loadingIssueToken, role, selectedOffice } = this.state;
+    const { loading, loadingIssueToken, role, selectedOffice } = this.state;
     const officeNodes = this.renderOffices();
     const office = selectOfficeById(selectedOffice);
 
@@ -231,14 +231,24 @@ export class HostDashboard extends React.Component {
                 <Layout padding>
                   <h2>Host: Available tokens</h2>
                   <h4>{keys.host.public}</h4>
-                  {this.renderTokens(office, 'host', 'rentee')}
+                  {!loading && this.renderTokens(office, 'host', 'rentee')}
+                  {loading && (
+                    <Layout>
+                      <Icon type="loading" style={{ fontSize: 100 }} />
+                    </Layout>
+                  )}
                 </Layout>
               </Col>
               <Col span="12">
                 <Layout padding>
                   <h2>Rentee: Assigned tokens</h2>
                   <h4>{keys.rentee.public}</h4>
-                  {this.renderTokens(office, 'rentee', 'host')}
+                  {!loading && this.renderTokens(office, 'rentee', 'host')}
+                  {loading && (
+                    <Layout>
+                      <Icon type="loading" style={{ fontSize: 100 }} />
+                    </Layout>
+                  )}
                 </Layout>
               </Col>
             </Row>
