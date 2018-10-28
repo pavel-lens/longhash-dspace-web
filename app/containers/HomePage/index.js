@@ -10,7 +10,9 @@
  */
 
 import React from 'react';
-import { Button, Icon } from 'antd';
+import { Link } from 'react-router-dom';
+import { Button, Icon, Row, Col } from 'antd';
+import Card from 'components/Card';
 import SuperNav from 'components/SuperNav';
 import * as request from 'utils/request';
 import styles from './styles.scss';
@@ -64,7 +66,33 @@ export default class HomePage extends React.PureComponent {
             {loadingTokens && <Icon type="loading" />}
           </pre>
         </div>
-        <Button type="primary">Hello</Button>
+        <Row gutter={32}>
+          <Col span="8">
+            <Link to="/super-admin">
+              <Card title="Super Admin">
+                <Icon
+                  type="setting"
+                  theme="twoTone"
+                  style={{ fontSize: 100 }}
+                />
+              </Card>
+            </Link>
+          </Col>
+          <Col span="8">
+            <Link to="/host-dashboard">
+              <Card title="Host Dashboard">
+                <Icon type="home" theme="twoTone" style={{ fontSize: 100 }} />
+              </Card>
+            </Link>
+          </Col>
+          <Col span="8">
+            <Link to="rentee-dashboard">
+              <Card title="Rentee Dashboard">
+                <Icon type="mobile" theme="twoTone" style={{ fontSize: 100 }} />
+              </Card>
+            </Link>
+          </Col>
+        </Row>
       </div>
     );
   }
