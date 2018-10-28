@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // flex-direction: column;
+
+  &_horizontal {
+    flex-direction: row;
+
+    & > div,
+    & > p,
+    & > i {
+      margin: 0 8px;
+    }
+  }
+  &_vertical {
+    flex-direction: column;
+
+    & > div,
+    & > p,
+    & > i {
+      margin: 8px 0;
+    }
+  }
+
+  &_padding {
+    padding: 32px;
+  }
+}
