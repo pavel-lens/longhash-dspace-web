@@ -56,7 +56,7 @@ export default class HomePage extends React.PureComponent {
     const { role, tokens, loadingTokens } = this.state;
 
     return (
-      <div className={styles.site}>
+      <div className="supernavPush">
         <SuperNav role={role} onRoleChange={this.handleRoleChange} />
         <h1>DSpace - Decentralized Shared Office rental</h1>
         <div>
