@@ -1,0 +1,19 @@
+.spacer {
+  display: block;
+
+  &__tiny {
+    margin: 4px 0 !important;
+  }
+  &__small {
+    margin: 8px 0 !important;
+  }
+  &__normal {
+    margin: 16px 0 !important;
+  }
+  &__large {
+    margin: 32px 0 !important;
+  }
+  &__huge {
+    margin: 64px 0 !important;
+  }
+}
