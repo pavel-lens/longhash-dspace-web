@@ -182,7 +182,7 @@ export class HostDashboard extends React.Component {
         {selectedOffice && (
           <div>
             <Button onClick={() => this.handleSelectOffice(false)}>
-              Back to Offices
+              <Icon type="left" /> Back to Offices
             </Button>{' '}
             <Button
               type="primary"
