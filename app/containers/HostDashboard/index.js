@@ -12,6 +12,7 @@ import { compose } from 'redux';
 import { Button, Icon, Row, Col } from 'antd';
 import Card from 'components/Card';
 import Layout from 'components/Layout';
+import Identity from 'components/Identity';
 import Spacer from 'components/Spacer';
 import SuperNav from 'components/SuperNav';
 import Token from 'components/Token';
@@ -188,7 +189,9 @@ export class HostDashboard extends React.Component {
     return (
       <div className="supernavPush">
         <SuperNav role={role} />
-        <h1>Host Dashboard</h1>
+        <h1 className={styles.title}>Host Dashboard</h1>
+        <Identity address={keys.host.public} />
+        <Spacer />
 
         {!selectedOffice && (
           <div>
@@ -198,14 +201,11 @@ export class HostDashboard extends React.Component {
         )}
         {selectedOffice && (
           <div>
-            <Button
-              type="primary"
-              onClick={() => this.handleSelectOffice(false)}
-            >
+            <Button onClick={() => this.handleSelectOffice(false)}>
               Back to Offices
             </Button>{' '}
             <Button
-              type="danger"
+              type="primary"
               loading={loadingIssueToken}
               onClick={() => this.handleIssueToken()}
             >
