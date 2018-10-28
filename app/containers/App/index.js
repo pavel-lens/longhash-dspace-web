@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import HostDashboard from 'containers/HostDashboard/Loadable';
+import RenteeDashboard from 'containers/RenteeDashboard/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
@@ -23,6 +24,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/host-dashboard" component={HostDashboard} />
+          <Route exact path="/rentee-dashboard" component={RenteeDashboard} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
