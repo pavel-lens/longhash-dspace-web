@@ -1,17 +1,20 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.7.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "dspace-web",
+  "version": "1.0.0",
+  "description": "Longhash Hackathon - everiToken: Shared office dapp implemented using Non-fungible Tokens (NFT).",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git@github.com:svitekpavel/longhash-dspace-web.git"
   },
   "engines": {
     "npm": ">=5",
     "node": ">=8.10.0"
   },
-  "author": "Max Stoiber",
+  "author": "Pavel Svitek",
   "license": "MIT",
+  "moduleRoots": [
+    "./app"
+  ],
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
